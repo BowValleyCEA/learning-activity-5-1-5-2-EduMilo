@@ -1,19 +1,33 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using game1401_la_5;
+
 Console.WriteLine("Hello, World!");
 LearningActivity5_1();
-return;
+LearningActivity5_2();
 
 void LearningActivity5_1()
 {
+    HighscoreBoard highscoreBoard = new HighscoreBoard();
     Random randomScore = new Random();
     while (true)
     {
         GameSelection choice = ChooseOption();
-        //int newHighScore = randomScore.Next(1000, 1000000);
-        //Console.WriteLine($"You finished with a score of {newHighScore}");
-        //if the player 
+        Console.Clear();
+        switch (choice)
+        {
+            case GameSelection.Play:
+                int newHighScore = randomScore.Next(1000, 1000000);
+                Console.WriteLine($"You finished with a score of {newHighScore}");
+                highscoreBoard.AddScore(newHighScore);
+                break;
+            case GameSelection.SeeHighScore:
+                highscoreBoard.DisplayTopScores();
+                break;
+            case GameSelection.Exit:
+                return;
 
+        }
     }
 }
 
@@ -28,16 +42,13 @@ GameSelection ChooseOption()
 
         if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= 3)
             validSelection = true;
-
     }
-
     return (GameSelection)selection;
-
 }
 //Be kind, rewind.
 void LearningActivity5_2()
 {
-
+    //uhhhhhh
 }
 
 enum GameSelection
