@@ -2,27 +2,28 @@
 {
     internal class HighscoreBoard
     {
-        List<int> _highScores = new List<int>();
+        private List<(int score, string intials)> _highScoresAndInitials = new List<(int, string)>(); //tuples :)
 
-        public void AddScore(int newScore)
+
+        public void AddScore(int newScore, string newInitials)
         {
             //places score in the right place on the board
-            _highScores.Add(newScore);
+            _highScoresAndInitials.Add((newScore, newInitials));
         }
 
         void SortScores()
         {
             //sorts all the scores
-            _highScores.Sort(); //ascending order
-            _highScores.Reverse();
+            _highScoresAndInitials.Sort(); //ascending order
+            _highScoresAndInitials.Reverse();
         }
         public void DisplayTopScores()
         {
             SortScores();
             Console.WriteLine("HIGHSCORES:");
-            for(int i = 0; i < Math.Min(_highScores.Count, 10); i++)
+            for(int i = 0; i < Math.Min(_highScoresAndInitials.Count, 10); i++)
             {
-                Console.WriteLine($"{i+1} - {_highScores[i]}");
+                Console.WriteLine($"{i+1} - {_highScoresAndInitials[i].intials} {_highScoresAndInitials[i].score}");
             }
         }
     }

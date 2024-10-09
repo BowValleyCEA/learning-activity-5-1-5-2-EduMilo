@@ -2,8 +2,7 @@
 
 using game1401_la_5;
 
-Console.WriteLine("Hello, World!");
-LearningActivity5_1();
+//LearningActivity5_1();
 LearningActivity5_2();
 
 void LearningActivity5_1()
@@ -19,7 +18,16 @@ void LearningActivity5_1()
             case GameSelection.Play:
                 int newHighScore = randomScore.Next(1000, 1000000);
                 Console.WriteLine($"You finished with a score of {newHighScore}");
-                highscoreBoard.AddScore(newHighScore);
+                Console.WriteLine("Please enter a 3 character initial");
+
+                string initial = Console.ReadLine();
+                while(initial.Length > 3 || initial.Length == 0)
+                {
+                    Console.WriteLine("You entered more than 3 characters! Please enter valid initials.");
+                    initial = Console.ReadLine();
+                }
+
+                highscoreBoard.AddScore(newHighScore, initial);
                 break;
             case GameSelection.SeeHighScore:
                 highscoreBoard.DisplayTopScores();
@@ -48,7 +56,9 @@ GameSelection ChooseOption()
 //Be kind, rewind.
 void LearningActivity5_2()
 {
-    //uhhhhhh
+    Console.Clear();
+    POSSystem pOSSystem = new POSSystem();
+    pOSSystem.Run();
 }
 
 enum GameSelection
