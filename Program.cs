@@ -2,7 +2,7 @@
 
 using game1401_la_5;
 
-//LearningActivity5_1();
+LearningActivity5_1();
 LearningActivity5_2();
 
 void LearningActivity5_1()
@@ -53,6 +53,7 @@ GameSelection ChooseOption()
     }
     return (GameSelection)selection;
 }
+
 //Be kind, rewind.
 void LearningActivity5_2()
 {
