@@ -11,7 +11,7 @@
             _highScoresAndInitials.Add((newScore, newInitials));
         }
 
-        void SortScores()
+        private void SortScores()
         {
             //sorts all the scores
             _highScoresAndInitials.Sort(); //ascending order

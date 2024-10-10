@@ -5,8 +5,8 @@ namespace game1401_la_5
 {
     internal class BrickBusterDatabase
     {
-        List<Video> AllVideos;
-        List<Customer> AllCustomers;
+        private List<Video> AllVideos;
+        private List<Customer> AllCustomers;
 
         public BrickBusterDatabase()
         {
@@ -173,7 +173,6 @@ namespace game1401_la_5
             AllCustomers[customerId].RentVideo(AllVideos[videoId]);
             Console.WriteLine("Success!");
         }
-
         public void AddVideoToList(string name, string genre, int duration)
         {
             //id is set to the current amount of videos.
